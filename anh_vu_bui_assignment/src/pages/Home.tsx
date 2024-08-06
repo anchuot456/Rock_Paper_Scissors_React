@@ -24,7 +24,7 @@ const Home = () => {
     if (enemyMoney <= 0) {
       alert("You Win!!!");
     }
-  }, [money, betMoney, chosenValue, enemyValue]);
+  }, [money, betMoney, chosenValue, enemyValue, enemyMoney]);
 
   /**
    * Game Logic Table
@@ -72,6 +72,14 @@ const Home = () => {
     }
     if (betMoney > money) {
       alert("You don't have enough money");
+      return;
+    }
+    if (money <= 0) {
+      alert("You already Lose.Please restart game");
+      return;
+    }
+    if (enemyMoney <= 0) {
+      alert("You already Win. Please restart game");
       return;
     }
     let randomNumber: number = RandomGenerator(0, 2);
